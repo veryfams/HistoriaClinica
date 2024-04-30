@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historia Clínica</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header class="bg-aqua py-4">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    <img src="logo.png" alt="Logo" class="img-fluid">
+                </div>
+                <div class="col-md-8 text-center text-md-right">
+                    <h1 class="mb-0">HISTORIA CLINICA</h1>
+                    <p class="mb-0">Andrés Meneses</p>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main class="container py-4">
+        <section class="d-flex justify-content-between">
+            <div id="fotoSection" class="mr-3">
+                <h2>Datos Personales</h2>
+                <input type="file" accept="image/*" id="fotoInput">
+                <div id="fotoContainer"></div>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" required>
+                <label for="cedula">N° de Cédula:</label>
+                <input type="text" id="cedula" required>
+                <label for="direccion">Dirección:</label>
+                <input type="text" id="direccion">
+                <label for="genero">Género:</label>
+                <select id="genero">
+                    <option value="masculino">Masculino</option>
+                    <option value="femenino">Femenino</option>
+                    <option value="otro">Otro</option>
+                </select>
+                <label for="condicionesMedicas">Condiciones Médicas:</label>
+                <textarea id="condicionesMedicas"></textarea>
+                <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+                <input type="date" id="fechaNacimiento" required>
+                <div id="lugarNacimiento">
+                    <label for="pais">País de Nacimiento:</label>
+                    <select id="pais" onchange="cargarCiudades()">
+                        <option value="">Seleccionar país</option>
+                        <option value="Ecuador">Ecuador</option>
+                    </select>
+                    <label for="ciudad">Ciudad de Nacimiento:</label>
+                    <select id="ciudad">
+                    </select>
+                </div>
+                
+                <button onclick="guardarDatos()">Guardar Datos</button>
+                
+            </div>
+            <div id="modalHijo" class="modal">
+                <div class="modal-content">
+                    <span class="close" onclick="cerrarModalHijo()">&times;</span>
+                    <h2>Ingrese los datos del hijo</h2>
+                    <div class="form-group">
+                        <label for="nombreHijo">Nombre:</label>
+                        <input type="text" id="nombreHijo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="fechaNacimientoHijo">Fecha de Nacimiento:</label>
+                        <input type="date" id="fechaNacimientoHijo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="generoHijo">Género:</label>
+                        <select id="generoHijo" class="form-control">
+                            <option value="masculino">Masculino</option>
+                            <option value="femenino">Femenino</option>
+                            <option value="otro">Otro</option>
+                        </select>
+                    </div>
+                    <button onclick="guardarHijo()" class="btn btn-primary">Guardar</button>
+                </div>
+            </div>
+        </div>
+            
+        </section>
+
+        <section>
+            <div>
+                <section>
+                    <h2>Listado de Ingresados</h2>
+                    <table id="tablaDatos" class="table">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Cédula</th>
+                                <th>Dirección</th>
+                                <th>Condiciones Médicas</th>
+                                <th>Edad</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!-- Aquí se agregarán las filas dinámicamente con JavaScript -->
+                        </tbody>
+                    </table>
+                </section>
+            </div>
+            <h2>Consultas Médicas</h2>
+            <table id="tablaConsultas" class="table">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Hora</th>
+                        <th>Persona</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se agregarán las filas dinámicamente con JavaScript -->
+                </tbody>
+            </table>
+            <div>
+                <label for="fechaConsulta">Fecha de Consulta:</label>
+                <input type="date" id="fechaConsulta">
+                <label for="horaConsulta">Hora de Consulta:</label>
+                <input type="time" id="horaConsulta">
+                <label for="personaConsulta">Persona:</label>
+                <select id="personaConsulta"></select>
+            </div>
+            <button onclick="agregarConsulta()">Agregar Consulta</button>
+        </section>
+
+        <section>
+        
+            <!-- Agregar después de la sección "Consultas Médicas" -->
+        
+            <section>
+                <h2>Posibles Hijos</h2>
+                <table id="tablaHijos" class="table">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Fecha de Nacimiento</th>
+                            <th>Género</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Filas de hijos se agregarán dinámicamente aquí -->
+                    </tbody>
+                </table>
+            </section>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Historia Clínica</p>
+    </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

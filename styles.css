@@ -1,0 +1,146 @@
+header {
+    background-color: #5CE1E6; /* Color de Fondo */
+}
+
+header img {
+    max-height: 80px; /* Tamaño del logo */
+}
+
+
+.modal {
+    display: none; /* Ocultar el modal por defecto */
+    position: fixed; /* Posición fija */
+    z-index: 1; /* Z-index para estar por encima del contenido */
+    left: 0;
+    top: 0;
+    width: 100%; /* Ancho completo */
+    height: 100%; /* Altura completa */
+    overflow: auto; /* Agregar desplazamiento si el contenido es más largo que el modal */
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semi-transparente */
+}
+
+.modal-content {
+    background-color: #fefefe; /* Fondo del contenido del modal */
+    margin: 15% auto; /* Margen superior e inferior para centrar verticalmente */
+    padding: 20px;
+    border: 1px solid #888;
+    border-radius: 10px;
+    width: 80%; /* Ancho del contenido del modal */
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 20px; /* Espacio entre elementos del formulario */
+}
+
+.form-control {
+    width: 100%; /* Ancho completo */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+}
+
+
+
+header h1 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2.5rem; /* Tamaño del título */
+}
+
+header p {
+    font-size: 1.2rem; /* Tamaño del texto secundario */
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+}
+
+section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-5px);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input, select, textarea, button {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+#fotoContainer {
+    width: 150px;
+    height: 150px;
+    background-color: #eee;
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 20px;
+}
+
+.bg-aqua {
+    background-color: #5CE1E6 !important; 
+}
+
+body {
+    background-image: url('historial_clinico.png');
+    background-size: cover;
+    background-position: center;
+}
+
